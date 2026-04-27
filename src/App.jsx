@@ -1,14 +1,17 @@
 import { useState } from "react";
+import profileImage from "../security_badge_suit.png";
 
 import {
   academicExperience,
   about,
+  awardsInvitations,
   education,
   contactCards,
   experience,
   highlights,
   iconLinks,
   industryExperience,
+  posters,
   profile,
   publications,
   researchAreas,
@@ -199,7 +202,7 @@ function PublicationCard({ item }) {
 
 function App() {
   const [activeTab, setActiveTab] = useState("about");
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   const publicationsByYear = publications.reduce((acc, publication) => {
     if (!acc[publication.year]) {
       acc[publication.year] = [];
@@ -216,8 +219,12 @@ function App() {
       <div className="page-shell page-shell--profile">
       <aside className="profile-sidebar">
         <div className="profile-card">
-          <div className="profile-image-frame" aria-hidden="true">
-            <div className="profile-image-placeholder">AK</div>
+          <div className="profile-image-frame">
+            <img
+              className="profile-image"
+              src={profileImage}
+              alt="Abhiram Kandiyana"
+            />
           </div>
           <h1>{profile.name}</h1>
           <p className="profile-role-pill">{profile.title}</p>
@@ -307,6 +314,13 @@ function App() {
           >
             Publications
           </button>
+          <button
+            type="button"
+            className={`section-tab ${activeTab === "awards" ? "section-tab--active" : ""}`}
+            onClick={() => setActiveTab("awards")}
+          >
+            Awards/Invitations
+          </button>
         </div>
         </div>
 
@@ -364,7 +378,11 @@ function App() {
                       <h4>{item.degree}</h4>
                       <p className="academic-org">{item.institution}</p>
                       <p className="academic-period">{item.period}</p>
-                      <p className="academic-detail">{item.detail}</p>
+                      {item.details.map((detail) => (
+                        <p key={detail} className="academic-detail">
+                          {detail}
+                        </p>
+                      ))}
                       {item.professors?.length ? (
                         <p className="academic-detail">
                           Major professors:{" "}
@@ -393,7 +411,10 @@ function App() {
                 <ol className="academic-list">
                   {academicExperience.map((item) => (
                     <li key={`${item.role}-${item.period}`} className="academic-item">
-                      <h4>{item.role}</h4>
+                      <div className="experience-title-row">
+                        <h4>{item.role}</h4>
+                        <p className="experience-location">{item.location}</p>
+                      </div>
                       <p className="academic-org">
                         {item.organizationUrl ? (
                           <a href={item.organizationUrl} target="_blank" rel="noreferrer">
@@ -415,7 +436,10 @@ function App() {
                 <ol className="academic-list">
                   {industryExperience.map((item) => (
                     <li key={`${item.role}-${item.period}`} className="academic-item">
-                      <h4>{item.role}</h4>
+                      <div className="experience-title-row">
+                        <h4>{item.role}</h4>
+                        <p className="experience-location">{item.location}</p>
+                      </div>
                       <p className="academic-org">{item.organization}</p>
                       <p className="academic-period">{item.period}</p>
                       <p className="academic-detail">{item.details}</p>
@@ -436,7 +460,7 @@ function App() {
               </section>
             </div>
           </section>
-        ) : (
+        ) : activeTab === "publications" ? (
           <section className="content-section tab-panel">
             <SectionHeading title="Publications" />
             <div className="accent-bar" />
@@ -451,6 +475,33 @@ function App() {
                     ))}
                   </div>
                 </section>
+              ))}
+            </div>
+
+            <div className="posters-section">
+              <h3 className="publication-section-heading">Posters</h3>
+              <div className="publication-list">
+                {posters.map((item) => (
+                  <PublicationCard key={item.id} item={item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : (
+          <section className="content-section tab-panel">
+            <SectionHeading title="Awards/Invitations" />
+            <div className="accent-bar" />
+
+            <div className="award-list">
+              {awardsInvitations.map((item) => (
+                <article key={`${item.title}-${item.year}`} className="award-card">
+                  <p className="award-year">{item.year}</p>
+                  <div className="award-copy">
+                    <h3>{item.title}</h3>
+                    <p className="award-organization">{item.organization}</p>
+                    <p>{item.description}</p>
+                  </div>
+                </article>
               ))}
             </div>
           </section>

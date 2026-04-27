@@ -1,6 +1,6 @@
 export const profile = {
   name: "Abhiram Kandiyana",
-  title: "PhD Candidate in Computer Science and Engineering",
+  title: "PhD | VLMs | Biomedical AI",
   institution: "University of South Florida",
   institutionSubline:
     "Bellini College of Artificial Intelligence, Cybersecurity and Computing",
@@ -76,6 +76,12 @@ export const researchAreas = [
 
 export const highlights = [
   {
+    date: "2026",
+    title: "Active Prompt Tuning paper accepted to CVPR workshops",
+    description:
+      "Our Active Prompt Tuning paper was accepted to the CVPR workshops, and I will present the work on June 3 at the PHAROS-AIF-MIH workshop.",
+  },
+  {
     date: "2025",
     title: "ISBI publication on active prompt tuning",
     description:
@@ -92,13 +98,7 @@ export const highlights = [
     title: "Master's thesis completed at USF",
     description:
       "Completed a thesis on semi-automated cell annotation using deep learning, focused on reducing manual effort in microscopy workflows.",
-  },
-  {
-    date: "2021 - Present",
-    title: "Ongoing research assistantship at USF",
-    description:
-      "Continued long-term research on microscopy image understanding, model tuning, segmentation, and deployable biomedical AI systems.",
-  },
+  }
 ];
 
 export const publications = [
@@ -159,20 +159,6 @@ export const publications = [
     },
   },
   {
-    id: "asemfl-2024-gpt-microscopy",
-    title: "Automatic Classification of Light Microscopy Images Using GPT Models",
-    venue: "ASEMFL Annual Meeting",
-    year: "2024",
-    authors:
-      "Abhiram Kandiyana, Peter R. Mouton, Yaroslav Kolinko, Lawrence O. Hall, Dmitry B. Goldgof",
-    abstract:
-      "This study explores the use of GPT-based systems for light microscopy image classification, with an emphasis on assessing the practical viability of large multimodal models in scientific imaging tasks.",
-    citation:
-      "Kandiyana, A., Mouton, P. R., Kolinko, Y., Hall, L. O., & Goldgof, D. B. (2024). Automatic Classification of Light Microscopy Images Using GPT Models. ASEMFL Annual Meeting.",
-    thumbnailLabel: "ASEMFL 2024",
-    links: {},
-  },
-  {
     id: "thesis-2024-cell-annotation",
     title: "Semi-automated Cell Annotation Framework Using Deep Learning",
     venue: "Master's Thesis, University of South Florida",
@@ -187,6 +173,23 @@ export const publications = [
       pdf: "https://digitalcommons.usf.edu/etd/10269/",
       website: "https://digitalcommons.usf.edu/etd/10269/",
     },
+  },
+];
+
+export const posters = [
+  {
+    id: "asemfl-2024-gpt-microscopy",
+    title: "Automatic Classification of Light Microscopy Images Using GPT Models",
+    venue: "ASEMFL Annual Meeting",
+    year: "2024",
+    authors:
+      "Abhiram Kandiyana, Peter R. Mouton, Yaroslav Kolinko, Lawrence O. Hall, Dmitry B. Goldgof",
+    abstract:
+      "This study explores the use of GPT-based systems for light microscopy image classification, with an emphasis on assessing the practical viability of large multimodal models in scientific imaging tasks.",
+    citation:
+      "Kandiyana, A., Mouton, P. R., Kolinko, Y., Hall, L. O., & Goldgof, D. B. (2024). Automatic Classification of Light Microscopy Images Using GPT Models. ASEMFL Annual Meeting.",
+    thumbnailLabel: "ASEMFL 2024",
+    links: {},
   },
 ];
 
@@ -220,6 +223,7 @@ export const academicExperience = [
     role: "Research Assistant",
     organization: "M-AI Project, University of South Florida",
     organizationUrl: "https://stalker0418.github.io/DL_Lab/",
+    location: "Tampa, FL",
     details:
       "Developed a novel active prompt tuning framework for biomedical image understanding, achieving 96% expert-level accuracy while boosting efficiency by up to 96% and minimizing data and time requirements. Fine-tuned foundation VLMs such as GPT-4o, NVLM, CLIP, LLaVA, and LLaVA-Med for microscopy image classification with an average accuracy of 93%, while also building preprocessing workflows including normalization, denoising, color space conversion, histogram equalization, and augmentation.",
   },
@@ -227,6 +231,7 @@ export const academicExperience = [
     period: "Aug 2021 - Present",
     role: "Teaching Assistant",
     organization: "Bellini College, University of South Florida",
+    location: "Tampa, FL",
     details:
       "Delivered graduate-level lectures on deep learning topics including preprocessing, activation functions, regularization, optimization, backpropagation, and CNNs, and designed hands-on image processing labs covering OpenCV fundamentals plus 3D and stereo imaging.",
   },
@@ -236,7 +241,8 @@ export const industryExperience = [
   {
     period: "Jun 2026 - Aug 2026",
     role: "Data Science Intern",
-    organization: "Capital One AI Foundations - LLM Foundations Team, New York City",
+    organization: "Capital One AI Foundations - LLM Foundations Team",
+    location: "New York City",
     details:
       "Incoming internship focused on data science and large language model foundation work within Capital One's AI Foundations organization.",
   },
@@ -244,13 +250,15 @@ export const industryExperience = [
     period: "May 2024 - Aug 2025",
     role: "Co-Founder and Founding Engineer",
     organization: "Mindlr AI",
+    location: "Remote",
     details:
       "Designed and built an AI search engine from scratch that generates multi-step blueprints and workflows using LangChain, RAG, Pinecone, AWS, Docker, Hugging Face, and LLM-based systems. Bootstrapped the startup from idea to beta product within three months and helped it gain visibility through BuildSpace.",
   },
   {
     period: "Aug 2020 - Aug 2021",
     role: "Machine Learning Engineer",
-    organization: "ConceptWaves | Vinshko Technologies, Hyderabad, India",
+    organization: "ConceptWaves | Vinshko Technologies",
+    location: "Hyderabad, India",
     details:
       "Built object detection and classification tools for semi-automated online proctoring, implemented computer vision grading systems that reduced grading time by 40%, and improved energy efficiency through predictive modeling that reduced consumption by 15%.",
   },
@@ -261,8 +269,10 @@ export const education = [
     degree: "PhD in Computer Science and Engineering",
     institution: "University of South Florida",
     period: "Jan 2023 - Dec 2026",
-    detail:
-      "Major area: automated quantification and explanation of microscopy images using vision-language models. GPA: 3.9/4.0.",
+    details: [
+      "Major area: automated quantification and explanation of microscopy images using vision-language models.",
+      "GPA: 3.9/4.0.",
+    ],
     professors: [
       {
         name: "Dmitry B. Goldgof",
@@ -278,8 +288,10 @@ export const education = [
     degree: "Master's in Computer Science, Thesis Track",
     institution: "University of South Florida",
     period: "Aug 2021 - May 2024",
-    detail:
-      "Completed with a 3.9/4.0 GPA. Thesis: Semi-automated Cell Annotation Framework Using Deep Learning.",
+    details: [
+      "GPA: 3.9/4.0.",
+      "Thesis: Semi-automated Cell Annotation Framework Using Deep Learning.",
+    ],
     professors: [
       {
         name: "Dmitry B. Goldgof",
@@ -290,6 +302,35 @@ export const education = [
         url: "https://www.usf.edu/ai-cybersecurity-computing/people/faculty/hall-lawrence.aspx",
       },
     ],
+  },
+];
+
+export const awardsInvitations = [
+  {
+    title: "NIH Entrepreneurship Bootcamp",
+    organization: "National Institutes of Health",
+    year: "2025",
+    description:
+      "Participated as a key team member in a competitively selected entrepreneurship and research translation program, interviewing 40+ neuroscientists and researchers globally as part of customer discovery.",
+  },
+  {
+    title: "Excellence in Student Research Award",
+    organization: "The Corridor",
+    year: "2024",
+    description:
+      "Recognized for Deep Learning-based Classification of Immunofluorescent-labeled Microglia Cells.",
+  },
+  {
+    title: "Speaker Invitation",
+    organization: "INTERM",
+    year: "2025",
+    description: "Invited to speak on characterization in biomedical sciences.",
+  },
+  {
+    title: "Campus Strategist",
+    organization: "Perplexity",
+    year: "2025",
+    description: "Representing Perplexity at the University of South Florida.",
   },
 ];
 
